@@ -6,7 +6,7 @@ import schedule
 import time
 
 # GitHub repository details
-GITHUB_REPO = 'your-username/your-repo'
+GITHUB_REPO = 'sagar0551/skills-hello-github-actions'
 GITHUB_TOKEN = 'your-github-token'
 
 # Prometheus metrics with labels
@@ -17,7 +17,7 @@ workflow_duration = Summary('github_workflow_duration_seconds', 'Duration of Git
 
 # Function to get all workflows
 def get_all_workflows():
-    url = f'https://api.github.com/repos/{GITHUB_REPO}/actions/workflows'
+    url = f'https://api.github.com/repos/skills-hello-github-actions/actions/workflows'
     headers = {'Authorization': f'token {GITHUB_TOKEN}'}
     response = requests.get(url, headers=headers)
     workflows = response.json()['workflows']
@@ -26,7 +26,7 @@ def get_all_workflows():
 # Function to get workflow runs for the last hour
 def get_recent_workflow_runs(workflow_id):
     one_hour_ago = datetime.utcnow() - timedelta(hours=1)
-    url = f'https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/{workflow_id}/runs?created={one_hour_ago.isoformat()}Z'
+    url = f'https://api.github.com/repos/{GITHUB_REPO}/actions/workflows/skills-hello-github-actions/runs?created={one_hour_ago.isoformat()}Z'
     headers = {'Authorization': f'token {GITHUB_TOKEN}'}
     response = requests.get(url, headers=headers)
     runs = response.json()['workflow_runs']
