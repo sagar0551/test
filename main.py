@@ -7,7 +7,7 @@ import time
 
 # GitHub repository details
 GITHUB_REPO = 'sagar0551/skills-hello-github-actions'
-GITHUB_TOKEN = 'your-github-token'
+GITHUB_TOKEN = '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'
 
 # Prometheus metrics with labels
 total_workflows = Gauge('github_total_workflows', 'Total number of GitHub workflows', ['adopter'])
@@ -18,7 +18,7 @@ workflow_duration = Summary('github_workflow_duration_seconds', 'Duration of Git
 # Function to get all workflows
 def get_all_workflows():
     url = f'https://api.github.com/repos/skills-hello-github-actions/actions/workflows'
-    headers = {'Authorization': f'token {GITHUB_TOKEN}'}
+    headers = {'Authorization': f'token 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'}
     response = requests.get(url, headers=headers)
     workflows = response.json()['workflows']
     return workflows
