@@ -25,6 +25,6 @@ jobs:
 
     - name: Run metrics script
       env:
-        GITHUB_TOKEN: ${{ secrets.TOKEN_GITHUB }}
+        GITHUB_TOKEN: ${{ secrets.token_github }}
       run: |
         python main.py
